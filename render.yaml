@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: tiktok-analytics-api
+    env: node
+    plan: free
+    buildCommand: bash render-build.sh
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD
+        value: true
+      - key: PUPPETEER_EXECUTABLE_PATH
+        value: /usr/bin/chromium
